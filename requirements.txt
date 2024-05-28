@@ -1,0 +1,15 @@
+pandas==2.0.3
+numpy==1.23.5
+seaborn==0.13.2
+scikit-learn==1.4.2
+matplotlib==3.7.2
+matplotlib-inline==0.1.6
+plotly==5.22.0
+jupyter==1.0.0
+jupyter-console==6.6.3
+jupyter-events==0.10.0
+jupyter-lsp==2.2.5
+jupyterlab==4.1.8
+pyarrow==16.1.0
+
+
