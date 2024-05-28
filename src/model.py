@@ -1,16 +1,9 @@
 import pandas as pd
 import numpy as np
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
 
 from static.constants import *
 from src.feature_engineering import FeatureEngineering
 from src.preprocessor import Preprocessor
-
-pd.set_option('display.max_rows', 5000)
-pd.set_option('display.max_columns', 5000)
-pd.set_option('display.width', 1000)
-pd.set_option('max_colwidth', 99999)
 
 
 class ClusterModel:
@@ -27,7 +20,7 @@ class ClusterModel:
 
     def fit_model(self):
         self.fitted_model = self.model(n_clusters=self.model_hyperparameters['n_clusters'],
-                                random_state=self.model_hyperparameters['random_state'])
+                                       random_state=self.model_hyperparameters['random_state'])
         self.fitted_model.fit(self.X)
 
     def plot_model_clusters(self, df):
@@ -131,52 +124,3 @@ if __name__ == '__main__':
 
     # Show plot
     plt.show()
-
-
-
-# distorsions = []
-# to_range = range(1, 15)
-# for k in to_range:
-#     kmeans = KMeans(n_clusters=k)
-#     kmeans.fit(rfm_df)
-#     distorsions.append(kmeans.inertia_)
-#
-# fig = plt.figure(figsize=(15, 5))
-# plt.plot(to_range, distorsions)
-# plt.grid(True)
-# plt.title('Elbow curve')
-# plt.show()
-
-
-# kmeans = KMeans(n_clusters=5, random_state=0)
-# kmeans.fit(X)
-#
-# rfm_df['Cluster'] = kmeans.fit_predict(X)
-# #
-# # fig = plt.figure(figsize=(10, 7))
-# # ax = fig.add_subplot(111, projection='3d')
-# #
-# #
-# # rfm_df = rfm_df[rfm_df['frequency'] < 50]
-# # rfm_df = rfm_df[rfm_df['monetary_value'] < 100_000]
-# #
-# #
-# # # Define colors
-# # colors = ['r', 'g', 'b', 'c', 'm']
-# # for cluster in range(5):
-# #     clustered_data = rfm_df[rfm_df['Cluster'] == cluster]
-# #     ax.scatter(clustered_data['recency'],
-# #                clustered_data['frequency'],
-# #                clustered_data['monetary_value'],
-# #                c=colors[cluster],
-# #                label=f'Cluster {cluster}')
-# #
-# # # Labels and title
-# # ax.set_xlabel('Recency')
-# # ax.set_ylabel('Frequency')
-# # ax.set_zlabel('Monetary')
-# # ax.set_title('3D K-means Clustering of RFM Data')
-# # ax.legend()
-# #
-# # # Show plot
-# # plt.show()

@@ -15,9 +15,6 @@ def duplicated_rows(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-
-
-
 def remove_customers_with_negative_amount(df: pd.DataFrame) -> pd.DataFrame:
     """
     remove customers that have negative amount spent. in some cases could indicate for fraud
@@ -114,44 +111,3 @@ if __name__ == '__main__':
     df = pd.read_parquet('df.parquet.gzip')
     preprocessor = Preprocessor()
     processed_df = preprocessor.preprocessing_pipeline(df)
-    pass
-
-# example
-
-# df = pd.DataFrame({'a': [1, 2, 3, 4, 5, 6]})
-#
-#
-# def func1(df: pd.DataFrame) -> pd.DataFrame:
-#     return df
-#
-#
-# def func2(df: pd.DataFrame) -> str:
-#     return df[df['a'] > 4]
-#
-#
-# def preprocessing_factory():
-#     """Factory Method"""
-#     functions = {
-#         'func1': func1,
-#         'func2': func2
-#     }
-#
-#     return [funcs for funcs in functions.values()]
-#
-#
-# class Preprocessor:
-#     registered_functions = preprocessing_factory()
-#
-#     def preprocessing_pipeline(self, df: pd.DataFrame) -> pd.DataFrame:
-#         for func in Preprocessor.registered_functions:
-#             df = func(df)
-#
-#         return df
-#
-# preprocessor = Preprocessor()
-#
-# # Applying the preprocessing pipeline to the DataFrame
-# processed_df = preprocessor.preprocessing_pipeline(df)
-#
-# # Display the processed DataFrame
-# print(processed_df)
