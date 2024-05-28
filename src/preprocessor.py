@@ -1,6 +1,6 @@
 import pandas as pd
 
-from constants import *
+from static.constants import *
 
 
 def duplicated_rows(df: pd.DataFrame) -> pd.DataFrame:
@@ -15,16 +15,7 @@ def duplicated_rows(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def func(df: pd.DataFrame) -> str:
-    """
 
-    Args:
-        df: dataframe to be analyzed
-
-    Returns:
-        object:
-    """
-    pass
 
 
 def remove_customers_with_negative_amount(df: pd.DataFrame) -> pd.DataFrame:

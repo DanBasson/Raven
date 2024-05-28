@@ -3,9 +3,9 @@ import numpy as np
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
-from constants import *
-from fe import FeatureEngineering
-from preprocessor import Preprocessor
+from static.constants import *
+from src.feature_engineering import FeatureEngineering
+from src.preprocessor import Preprocessor
 
 pd.set_option('display.max_rows', 5000)
 pd.set_option('display.max_columns', 5000)
