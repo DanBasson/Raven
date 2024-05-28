@@ -1,4 +1,5 @@
 import pandas as pd
+from typing import List
 
 from static.constants import *
 
@@ -83,7 +84,7 @@ def remove_transactions_without_customerid(df: pd.DataFrame) -> pd.DataFrame:
     return df_no_null
 
 
-def preprocessor_factory():
+def preprocessor_factory() -> List:
     """Factory Method"""
     functions = {
         'duplicated_rows': duplicated_rows,
