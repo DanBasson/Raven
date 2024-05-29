@@ -1,5 +1,8 @@
 import pandas as pd
 import numpy as np
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
 
 from static.constants import *
 from src.feature_engineering import FeatureEngineering
@@ -96,7 +99,6 @@ if __name__ == '__main__':
     #
     # fig.show()
 
-    from sklearn.decomposition import PCA
 
     pca = PCA(n_components=5)
     # pca_components.fit(X)
