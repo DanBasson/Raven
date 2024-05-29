@@ -54,7 +54,7 @@ class ClusterModel:
 
     def elbow_method(self):
         for k in self.elbow_iter_range:
-            model_ = self.model(n_clusters=k)
+            model_ = self.model(n_clusters=k, random_state=1)
             model_.fit(self.X)
             self.elbow_distortions.append(model_.inertia_)
 
