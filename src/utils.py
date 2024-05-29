@@ -1,24 +1,12 @@
 import pandas as pd
 import numpy as np
+import os, sys
 import seaborn as sns
 import matplotlib.pyplot as plt
-from IPython.display import display as di
 import plotly.express as px
 
-# from ..constants import *
-
-
-invoiceno = 'InvoiceNo'
-stockcode = 'StockCode'
-description = 'Description'
-quantity = 'Quantity'
-invoicedate = 'InvoiceDate'
-unitprice = 'UnitPrice'
-customerid = 'CustomerID'
-country = 'Country'
-
-# new columns
-amount = 'amount'
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from static.constants import *
 
 
 def customer_cumsum(df):
@@ -85,14 +73,9 @@ def get_whale_customers(processed_df, q=.95):
 
 
 def get_whales_by_column(whales, groupby_column, top_countries_n=5):
-
-    whales_count = whales.groupby(groupby_column, as_index=False)[customerid].nunique().rename(columns={customerid: 'customers'})
+    whales_count = whales.groupby(groupby_column, as_index=False)[customerid].nunique().rename(
+        columns={customerid: 'customers'})
     # whales_count = whales_count[whales_count[country].isin(top_countries)]
     whales_count.sort_values('customers', ascending=False, inplace=True)
 
     return whales_count[:top_countries_n]
-
-
-def apply_elbow():
-
-    return

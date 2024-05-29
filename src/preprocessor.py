@@ -106,9 +106,3 @@ class Preprocessor:
             df = func(df)
 
         return df
-
-
-if __name__ == '__main__':
-    df = pd.read_parquet('df.parquet.gzip')
-    preprocessor = Preprocessor()
-    processed_df = preprocessor.preprocessing_pipeline(df)

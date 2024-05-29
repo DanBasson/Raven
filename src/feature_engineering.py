@@ -79,15 +79,3 @@ class FeatureEngineering:
                 customer_df = customer_df.merge(df_new_column, on=customerid)
 
         return customer_df
-
-
-if __name__ == '__main__':
-    df = pd.read_parquet('df.parquet.gzip')
-    CURRENT_TIME = df[invoicedate].max()
-    preprocessor = Preprocessor()
-    processed_df = preprocessor.preprocessing_pipeline(df)
-    print(f'total customers - {processed_df[customerid].nunique()}')
-
-    fe = FeatureEngineering()
-    fe_df = fe.feature_engineering_pipeline(processed_df)
-    print(f'total customers - {processed_df[customerid].nunique()}')
